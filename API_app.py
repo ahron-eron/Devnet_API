@@ -12,8 +12,18 @@ next_id = 3
 
 # ---------- Kurt: GET endpoints ----------
 # (replace this line with your code guys)
+# get all devices
+@app.route("/devices", method=["GET"])
+def get_devices():
+    return jsonify(devices), 200
 
-
+# get one device by id
+@app.route("/devices/<int:device_id>", method=["GET"])
+def get_device(device_id):
+    for d in devices:
+        if d["device_id"] == device_id:
+            return jsonify(d), 200
+    return jsonify({"error": "Device not found"}), 404
 # ---------- Andres: POST endpoint ----------
 # (replace this line with your code guys)
 
