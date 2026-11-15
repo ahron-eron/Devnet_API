@@ -27,6 +27,7 @@ def get_device(device_id):
 
 # ---------- Andres: POST endpoint ----------
 # (replace this line with your code guys)
+
 # update the status of a device
 @app.route("/devices/<int:device_id>", methods=["PUT"])
 def update_device(device_id):
