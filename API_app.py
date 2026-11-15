@@ -9,9 +9,6 @@ devices = [
 ]
 next_id = 3
 
-
-# ---------- Kurt: GET endpoints ----------
-# (replace this line with your code guys)
 # get all devices
 @app.route("/devices", method=["GET"])
 def get_devices():
@@ -24,9 +21,6 @@ def get_device(device_id):
         if d["device_id"] == device_id:
             return jsonify(d), 200
     return jsonify({"error": "Device not found"}), 404
-
-# ---------- Andres: POST endpoint ----------
-# (replace this line with your code guys)
 
 # update the status of a device
 @app.route("/devices/<int:device_id>", methods=["PUT"])
@@ -45,11 +39,6 @@ def update_device(device_id):
             return jsonify(d), 200
 
     return jsonify({"error": "Device not found"}), 404
-
-
-# ---------- Jaynard: PUT endpoint ----------
-# (replace this line with your code guys)
-
 
 # delete a device
 @app.route("/devices/<int:device_id>", methods=["DELETE"])
