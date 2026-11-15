@@ -24,8 +24,6 @@ def get_device(device_id):
         if d["device_id"] == device_id:
             return jsonify(d), 200
     return jsonify({"error": "Device not found"}), 404
-
-    
 # ---------- Andres: POST endpoint ----------
 # (replace this line with your code guys)
 
