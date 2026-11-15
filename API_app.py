@@ -10,12 +10,12 @@ devices = [
 next_id = 3
 
 # get all devices
-@app.route("/devices", method=["GET"])
+@app.route("/devices", methods=["GET"])
 def get_devices():
     return jsonify(devices), 200
 
 # get one device by id
-@app.route("/devices/<int:device_id>", method=["GET"])
+@app.route("/devices/<int:device_id>", methods=["GET"])
 def get_device(device_id):
     for d in devices:
         if d["device_id"] == device_id:
