@@ -22,6 +22,24 @@ def get_device(device_id):
             return jsonify(d), 200
     return jsonify({"error": "Device not found"}), 404
 
+# add a new device
+@app.route("/devices", methods=["POST"])
+def add_device():
+    global next_id
+    data = request.get_json()
+
+    if data is None or "owner" not in data:
+        return jsonify({"error": "owner is required"}), 400
+
+    new_device = {
+        "device_id": next_id,
+        "owner": data["owner"],
+        "status": "disconnected"
+    }
+    devices.append(new_device)
+    next_id = next_id + 1
+    return jsonify(new_device), 201
+    
 # update the status of a device
 @app.route("/devices/<int:device_id>", methods=["PUT"])
 def update_device(device_id):
