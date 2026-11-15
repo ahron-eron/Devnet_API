@@ -22,8 +22,14 @@ next_id = 3
 # (replace this line with your code guys)
 
 
-# ---------- Ahron: DELETE endpoint ----------
-# (replace this line with your code guys)
+# delete a device
+@app.route("/devices/<int:device_id>", methods=["DELETE"])
+def delete_device(device_id):
+    for d in devices:
+        if d["device_id"] == device_id:
+            devices.remove(d)
+            return jsonify({"message": "Device deleted"}), 200
+    return jsonify({"error": "Device not found"}), 404
 
 
 if __name__ == "__main__":
